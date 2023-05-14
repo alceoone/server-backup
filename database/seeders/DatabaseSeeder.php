@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
             'user_app_id' => 'SAL001',
             'name' => 'Fajar Kurniawan',
             'email' => 'fajar101198@gmail.com',
-            'password' => Hash::make('12345678'),
+            'password' => Hash::make('12345678qaz'),
             'role' => 'owner',
         ]);
         // \App\Models\User::factory(10)->create();
