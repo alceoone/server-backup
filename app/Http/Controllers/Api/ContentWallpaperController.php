@@ -26,7 +26,7 @@ class ContentWallpaperController extends Controller
                     // \DB::raw('CONCAT("https://cf12-182-2-47-40.ngrok-free.app","/storage/",images.folder,"/",images.image_name) AS image')
                     ) 
                 ->where('image_categories.app_id', '=', $data->app_id)
-                ->paginate(8);
+                ->paginate(20);
                 // ->get();
             return response()->json($appContent->items(), 200, ['Content-Type' => 'application/json;charset=UTF-8']);
         } else {
