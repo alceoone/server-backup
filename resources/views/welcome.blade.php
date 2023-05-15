@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <meta name="facebook-domain-verification" content="3ddg64d7pd61o7g7zs4iokx13unpca" />
     <title>Laravel</title>
     <link href="https://unpkg.com/tailwindcss@2.0.2/dist/tailwind.min.css" rel="stylesheet">
 
