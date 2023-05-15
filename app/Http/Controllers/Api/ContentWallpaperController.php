@@ -22,8 +22,8 @@ class ContentWallpaperController extends Controller
                     'images.title',
                     'images.image_name',
                     'images.folder',
-                    // \DB::raw('CONCAT("'.env('APP_URL').'","/storage/",images.folder,"/",images.image_name) AS image')
-                    \DB::raw('CONCAT("https://cf12-182-2-47-40.ngrok-free.app","/storage/",images.folder,"/",images.image_name) AS image')
+                    \DB::raw('CONCAT("'.env('APP_URL').'","/storage/",images.folder,"/",images.image_name) AS image')
+                    // \DB::raw('CONCAT("https://cf12-182-2-47-40.ngrok-free.app","/storage/",images.folder,"/",images.image_name) AS image')
                     ) 
                 ->where('image_categories.app_id', '=', $data->app_id)
                 ->paginate(8);
