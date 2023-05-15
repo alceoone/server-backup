@@ -1,27 +1,71 @@
------BEGIN CERTIFICATE-----
-MIIEojCCA4qgAwIBAgIUQhf7MRxu43Aa+I10j8PW/iRD9jYwDQYJKoZIhvcNAQEL
-BQAwgYsxCzAJBgNVBAYTAlVTMRkwFwYDVQQKExBDbG91ZEZsYXJlLCBJbmMuMTQw
-MgYDVQQLEytDbG91ZEZsYXJlIE9yaWdpbiBTU0wgQ2VydGlmaWNhdGUgQXV0aG9y
-aXR5MRYwFAYDVQQHEw1TYW4gRnJhbmNpc2NvMRMwEQYDVQQIEwpDYWxpZm9ybmlh
-MB4XDTIzMDUxNTAyMTEwMFoXDTM4MDUxMTAyMTEwMFowYjEZMBcGA1UEChMQQ2xv
-dWRGbGFyZSwgSW5jLjEdMBsGA1UECxMUQ2xvdWRGbGFyZSBPcmlnaW4gQ0ExJjAk
-BgNVBAMTHUNsb3VkRmxhcmUgT3JpZ2luIENlcnRpZmljYXRlMIIBIjANBgkqhkiG
-9w0BAQEFAAOCAQ8AMIIBCgKCAQEA2NEMDVNibrB3MPwzSUBnz5caVQa5MAxzVE7t
-C6Ccn6VQqrY5scbTXp//9kPStQKl8MYopaVMs+7i3vqvljvYUyQurc1h2CCGH+M4
-DAHPgp2jfe9/YsdWAhDdM6gGqdS65TZXWCLIFp7rRjuI1XChuesc3Z8gmlthOVi7
-0M7LHrqyXK8JKtuMQhzNJ0P1UC8mHciiYOodl8Rvy31dvKiWTnZN2C5aTPL6KyVO
-Ex2jYh/g0o2g3QrjrEQcOzhyqT23pz18aUPav59fy3Ejcy2DpUOXfH/FXTvUUrDq
-8Bjupvy3cXbSaNJLRLnYtW8MXv+5snjdc6BeizdnKWnbxISBTwIDAQABo4IBJDCC
-ASAwDgYDVR0PAQH/BAQDAgWgMB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcD
-ATAMBgNVHRMBAf8EAjAAMB0GA1UdDgQWBBR3dvVwRCxdhFsdVaDbf+bfGD+u+jAf
-BgNVHSMEGDAWgBQk6FNXXXw0QIep65TbuuEWePwppDBABggrBgEFBQcBAQQ0MDIw
-MAYIKwYBBQUHMAGGJGh0dHA6Ly9vY3NwLmNsb3VkZmxhcmUuY29tL29yaWdpbl9j
-YTAlBgNVHREEHjAcgg0qLmFsY2VvLm15LmlkggthbGNlby5teS5pZDA4BgNVHR8E
-MTAvMC2gK6AphidodHRwOi8vY3JsLmNsb3VkZmxhcmUuY29tL29yaWdpbl9jYS5j
-cmwwDQYJKoZIhvcNAQELBQADggEBAKJZ8UnUUN8aUuM7tFSltdjx4adKVFHzt8b3
-+zfsqN0Pg4i03ifQgRhAHSxbN31QetQhwL5Nis5o4tOqX5fg3sZhzr3G7Fn6f4jM
-Wn/7v2qbY37n4MyQ7AJadRG4Zu5hynMr4xNC/fraPg+OSdKIELxXzhU2KYVoAilm
-NVtyZR3XqIcERyQpQD6PpMM3Pw2N4Kvdlf5BZ1vcQvztO5UmMth2Q3bapDq3GAO5
-USbDsCILrLEv2DtmPjQvGgKb28xd1aaRA3TJBPRx4WCHUyNX62Lrs3bvvs3ozJO6
-fs2EuwTy2Ew4/PmSJAh2HwKqBwDlXfa/Ppbq4g2GUFSPG7fKvpE=
------END CERTIFICATE-----
+default 
+-----BEGIN PRIVATE KEY-----
+MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDY0QwNU2JusHcw
+/DNJQGfPlxpVBrkwDHNUTu0LoJyfpVCqtjmxxtNen//2Q9K1AqXwxiilpUyz7uLe
++q+WO9hTJC6tzWHYIIYf4zgMAc+CnaN9739ix1YCEN0zqAap1LrlNldYIsgWnutG
+O4jVcKG56xzdnyCaW2E5WLvQzsseurJcrwkq24xCHM0nQ/VQLyYdyKJg6h2XxG/L
+fV28qJZOdk3YLlpM8vorJU4THaNiH+DSjaDdCuOsRBw7OHKpPbenPXxpQ9q/n1/L
+cSNzLYOlQ5d8f8VdO9RSsOrwGO6m/LdxdtJo0ktEudi1bwxe/7myeN1zoF6LN2cp
+advEhIFPAgMBAAECggEAKzENzRPI3pMR03TSRKvrYjvQN5L0zkEUsn1clH3k5Zq5
+pKBTgvpAPi/yfh0JuxxxcTMQgtsYmhmjIVdgJjX6xKlHEUGCVds4zN5nWmD79SGx
+IZPV1Rgvpo60eidlWGyz5Jh8MucO5A65gM64VgivdwmCwRWDmaxNhG6MT676YL7j
+ZkDxPyUATEIOMFVmbfwZa6UW9VrDN3jZgGP6YBSVqQ6GFEWgx5jNe6MoZxLMJ3g3
+vrP6Xd8NCP2VgaQK25xAHLFcfLEKbFPkiIkDIC0KHm+euclUcj4qqDFQFdVgHDgw
+IuZStm7icAfb6FFFcX0ZaRkQpD9rZmehWLvtFhEtHQKBgQD5nyKly/b0DKZtUDd5
+0t51ajIw5xRotXKRNGWhqRxuPeQMrwSlWSsoUvg0e3syYw/RzQA3Utgb3b57zYTm
+jM2wUPK8U46cbP8I9g69Fj6CC5mIhXGUZrRx9wevPaGUEuB8nSWApAyvyhZHUnGI
+CQBy3kM709g9m98rCfStGHWJYwKBgQDeW1J+aMLR5GnEYB7y0eLxWycYBclrnys7
+NOmywtle1CnWCwU73WLLbwCyDe3kC2Yn4w53AQwz0eHspIksVHUNzJnZDih7HKrG
+EI/th/sl4u1XmN1NbunhURAuwyxrsetWroDWsLXdOnRF8GxwCTMEE9H8TsmJnm3g
+uFcxyj2iJQKBgH/HomjUvBm50AftJDjMZOwd7Itz/tKK75a9B7l1ZARa0j5b6Tjr
+KFiAAGZ9P1dPtm1jT1UCp3W8USH21q1eLnyvM1KMQ1h3wyXHL0xD8sOHRJTKGpYo
+7P3ZwqlGF0xBTYD8wJHVaFkkTbs8zLkiQoSKmkgp7Wu8OsVBV2q0NpaZAoGBAKTS
+JqUC/J5e5LOm2Gn/gGyNt73L1FENLBt4Dl7upffv5o79nkSQxwGq52YUgykN9gxM
+91TpFuV2hzRFhlSwyg+PgN7u6rzPNBsa/cUBjf24Z1wOOMSEGaNl1kwDanLt8FdR
+hLkfRb+V68hH/elSOFmmY3nV4Pg80o/HtQJ4OhVtAoGBAJFfoBE7xVOIif4B8rbt
+z8jpHDx1twDRWTaJi0ujhUy/duoPvIdfKcuwk8SxYBGyXX5AHPDk/H1X9QDzOVf9
+zkN2ffnzo5r0FMoKcJq91W/U7ukpsPnJtO/mlyelAIjN5hEmQFy9sFFc4AIeAFyE
+PDXWekgsErTRk93VO4f/qAg4
+-----END PRIVATE KEY-----
+
+server {
+    listen 80;
+    listen [::]:80;
+
+    listen 443 ssl http2;
+    listen [::]:443 ssl http2;
+
+    ssl        on;
+    ssl_certificate         /etc/ssl/certs/Backupcert.pem;
+    ssl_certificate_key     /etc/ssl/private/Backupcert.key;
+
+    server_name alceo.my.id www.alceo.my.id;
+
+    root /var/www/html/backup-server/server-backup/public;
+
+    add_header X-Frame-Options "SAMEORIGIN";
+    add_header X-Content-Type-Options "nosniff";
+
+    index index.php;
+
+    charset utf-8;
+
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+    }
+
+    location = /favicon.ico { access_log off; log_not_found off; }
+    location = /robots.txt  { access_log off; log_not_found off; }
+
+    error_page 404 /index.php;
+
+    location ~ \.php$ {
+        fastcgi_pass unix:/var/run/php/php8.0-fpm.sock;
+        fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
+        include fastcgi_params;
+    }
+
+    location ~ /\.(?!well-known).* {
+        deny all;
+    }
+}
