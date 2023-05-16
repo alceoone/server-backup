@@ -19,7 +19,14 @@ use App\Http\Controllers\Api\ContentWallpaperController;
 //     return $request->user();
 // });
 
-Route::get('/{key}/', [App\Http\Controllers\Api\ContentWallpaperController::class, 'index']);
-Route::get('/{key}/new', [App\Http\Controllers\Api\ContentWallpaperController::class, 'new']);
-Route::get('/{key}/category', [App\Http\Controllers\Api\ContentWallpaperController::class, 'category']);
-Route::get('/{key}/category/{id}', [App\Http\Controllers\Api\ContentWallpaperController::class, 'categoryId']);
+// Route::get('/{key}/', [App\Http\Controllers\Api\ContentWallpaperController::class, 'index']);
+// Route::get('/{key}/new', [App\Http\Controllers\Api\ContentWallpaperController::class, 'new']);
+// Route::get('/{key}/category', [App\Http\Controllers\Api\ContentWallpaperController::class, 'category']);
+// Route::get('/{key}/category/{id}', [App\Http\Controllers\Api\ContentWallpaperController::class, 'categoryId']);
+
+Route::group(['prefix' => 'v1'], function () {
+    Route::get('/{key}/', [App\Http\Controllers\Api\ContentWallpaperController::class, 'index']);
+    Route::get('/{key}/new', [App\Http\Controllers\Api\ContentWallpaperController::class, 'new']);
+    Route::get('/{key}/category', [App\Http\Controllers\Api\ContentWallpaperController::class, 'category']);
+    Route::get('/{key}/category/{id}', [App\Http\Controllers\Api\ContentWallpaperController::class, 'categoryId']);    
+});
