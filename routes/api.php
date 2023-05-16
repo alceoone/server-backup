@@ -20,3 +20,6 @@ use App\Http\Controllers\Api\ContentWallpaperController;
 // });
 
 Route::get('/{key}/', [App\Http\Controllers\Api\ContentWallpaperController::class, 'index']);
+Route::get('/{key}/new', [App\Http\Controllers\Api\ContentWallpaperController::class, 'new']);
+Route::get('/{key}/category', [App\Http\Controllers\Api\ContentWallpaperController::class, 'category']);
+Route::get('/{key}/category/{id}', [App\Http\Controllers\Api\ContentWallpaperController::class, 'categoryId']);
