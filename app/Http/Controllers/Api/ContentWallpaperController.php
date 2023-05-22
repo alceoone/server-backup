@@ -53,7 +53,7 @@ class ContentWallpaperController extends Controller
                     'image_categories.created_at'
                     ) 
                 ->where('image_categories.app_id', '=', $data->app_id)
-                ->orderByDesc('image_categories.created_at')->take(20)->get();
+                ->orderByDesc('image_categories.created_at')->take(31)->get();
             return response()->json($appContent, 200, ['Content-Type' => 'application/json;charset=UTF-8']);
         } else {
             return response()->json(['error' => 'Data not found'], 404);
