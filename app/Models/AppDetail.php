@@ -9,8 +9,11 @@ class AppDetail extends Model
 {
     use HasFactory;
 
+    
+    protected $table = 'app_details';
+    protected $primaryKey = 'app_id';
+
     protected $fillable = [
-        'app_id',
         'user_app_id',
         'title',
         'deskripsi',

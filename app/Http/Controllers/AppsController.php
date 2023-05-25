@@ -7,6 +7,7 @@ use App\Models\ImageCategory;
 use Illuminate\Http\Request;
 use DataTables;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class AppsController extends Controller
 {
@@ -25,7 +26,7 @@ class AppsController extends Controller
 
     public static function quickRandomappKey($length = 8)
     {
-         $pool = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+         $pool = '0123456789abcdefghijklmnopqrstuvwxyz';
      
          return substr(str_shuffle(str_repeat($pool, 5)), 0, $length);
     }
@@ -150,9 +151,56 @@ class AppsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, AppDetail $appdetail)
     {
-        //
+        $dataApp = $appdetail->first();
+        // return $dataApp;
+
+        $this->validate($request, [
+            'title'     => 'required|min:5',
+            'content'   => 'required|min:10',
+            'package'   => 'required|min:3',
+            'privacy_policy' => 'required',
+        ]);
+
+        if ($request->hasFile('image')) {
+
+            //upload new image
+            $image = $request->file('image');
+            $image->storeAs('public/application', $image->hashName());
+    
+
+            //delete old image
+            Storage::delete('public/application/'.$dataApp->image_icon);
+
+            //update promo with new image
+            $dataApp->update([
+                'image_icon' => $image->hashName(),
+                'title' => $request->title,
+                'deskripsi' => $request->content,
+                'package' => $request->package,
+                'privacy_policy' => $request->privacy_policy,
+            ]);
+
+        } else {
+
+            $dataApp->update([
+                'title' => $request->title,
+                'deskripsi' => $request->content,
+                'package' => $request->package,
+                'privacy_policy' => $request->privacy_policy,
+            ]);
+        }
+
+        if(!$dataApp->subKey) {
+            $dataApp->update([
+                'subKey' => $this->quickRandomappKey(),
+            ]);
+        }
+
+        
+        return redirect()->route('application.index')->with(['success' => 'Data Berhasil Diubah!']);
+
     }
 
     /**
