@@ -61,6 +61,19 @@
                                     </div>
                                 @enderror
                             </div>
+
+                            <div class="form-group">
+                                <label class="font-weight-bold">Privacy Policy</label>
+                                <textarea class="form-control @error('privacy_policy') is-invalid @enderror" name="privacy_policy" rows="5"
+                                    placeholder="Masukkan Privacy Policy">{{ old('privacy_policy') }}</textarea>
+
+                                <!-- error message untuk privacy_policy -->
+                                @error('privacy_policy')
+                                    <div class="alert alert-danger mt-2">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
                             <div class="mt-3">
                                 <button type="submit" class="btn btn-md btn-primary">Save</button>
                                 <button type="reset" class="btn btn-md btn-warning">Reset</button>
@@ -71,6 +84,12 @@
             </div>
         </div>
     </div>
-    </div>
-    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
+    <script src="https://cdn.ckeditor.com/4.13.1/standard/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace('content');
+        CKEDITOR.replace('privacy_policy');
+    </script>
 @endsection

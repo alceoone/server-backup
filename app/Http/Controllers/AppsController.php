@@ -23,6 +23,13 @@ class AppsController extends Controller
          return substr(str_shuffle(str_repeat($pool, 5)), 0, $length);
     }
 
+    public static function quickRandomappKey($length = 8)
+    {
+         $pool = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+     
+         return substr(str_shuffle(str_repeat($pool, 5)), 0, $length);
+    }
+
     public static function fillAuth()
     {
         $dataUser = Auth::user();
@@ -37,7 +44,7 @@ class AppsController extends Controller
     public function index(Request $request)
     {
 
-        $data = AppDetail::select('app_id','user_app_id','image_icon','title','package','key')->where('user_app_id', $this->fillAuth())->get();
+        $data = AppDetail::select('app_id','user_app_id','image_icon','subKey','title','package','key')->where('user_app_id', $this->fillAuth())->get();
         if ($request->ajax()) {
             return Datatables::of($data)->addIndexColumn()
                 ->addColumn('action', function($row){
@@ -77,6 +84,7 @@ class AppsController extends Controller
             'title'     => 'required|min:5',
             'content'   => 'required|min:10',
             'package'   => 'required|min:3',
+            'privacy_policy' => 'required',
         ]);
 
         //upload image
@@ -91,7 +99,9 @@ class AppsController extends Controller
             'deskripsi' => $request->content,
             'package' => $request->package,
             'key' => $this->quickRandom(),
-            'status' => 'active'
+            'status' => 'active',
+            'subKey' => $this->quickRandomappKey(),
+            'privacy_policy' => $request->privacy_policy,
         ]);
 
         //redirect to index

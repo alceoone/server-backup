@@ -17,7 +17,8 @@ class AppDetail extends Model
         'package',
         'key',
         'image_icon',
-
+        'subKey',
+        'privacy_policy',
         'status'
     ];
 }

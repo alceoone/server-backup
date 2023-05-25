@@ -17,7 +17,7 @@ return new class extends Migration
             $table->integer('app_id', 11);
             $table->string('user_app_id');
             $table->string('title');
-            $table->string('deskripsi');
+            $table->text('deskripsi');
             $table->string('package');
             $table->string('key');
             $table->text('image_icon');

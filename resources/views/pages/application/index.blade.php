@@ -18,6 +18,7 @@
                                         <th>Title</th>
                                         <th>Package</th>
                                         <th>Key</th>
+                                        <th>Key Privacy</th>
                                         <th width="100px">Action</th>
                                     </tr>
                                 </thead>
@@ -69,6 +70,10 @@
                     {
                         data: 'key',
                         name: 'Key'
+                    },
+                    {
+                        data: 'subKey',
+                        name: 'Key Privacy'
                     },
                     {
                         data: 'action',

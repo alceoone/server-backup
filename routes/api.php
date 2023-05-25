@@ -28,5 +28,7 @@ Route::group(['prefix' => 'v1'], function () {
     Route::get('/{key}/', [App\Http\Controllers\Api\ContentWallpaperController::class, 'index']);
     Route::get('/{key}/new', [App\Http\Controllers\Api\ContentWallpaperController::class, 'new']);
     Route::get('/{key}/category', [App\Http\Controllers\Api\ContentWallpaperController::class, 'category']);
-    Route::get('/{key}/category/{id}', [App\Http\Controllers\Api\ContentWallpaperController::class, 'categoryId']);    
+    Route::get('/{key}/category/{id}', [App\Http\Controllers\Api\ContentWallpaperController::class, 'categoryId']);  
+    Route::get('/{appKey}/privacy-policy', [App\Http\Controllers\Api\ContentWallpaperController::class, 'privacyPolicy']);
+    Route::get('/{appKey}/deskripsi', [App\Http\Controllers\Api\ContentWallpaperController::class, 'deskripsi']);
 });

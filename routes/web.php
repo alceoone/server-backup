@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AppsController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AssetsController;
+use App\Http\Controllers\PrivacyPolicyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,9 +21,14 @@ use App\Http\Controllers\AssetsController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/privacy-policy', function () {
-    return view('privacy-policy');
-});
+
+Route::get('/{appKey}/privacy-policy', [App\Http\Controllers\PrivacyPolicyController::class, 'index']);
+// Route::domain('{sub}.'. env('APP_URL'))->group(function () {
+//     Route::get('/privacy-policy', function ($sub) {
+//         // return view('privacy-policy');
+//         return 'User ' . $sub ;
+//     });
+// });
 
 Auth::routes();
 
