@@ -108,11 +108,11 @@ class ContentWallpaperController extends Controller
 
     public function privacyPolicy($appKey){
         $data = AppDetail::select('privacy_policy')->where('subKey', '=', $appKey)->first();
-        return response()->json($data, 200);
+        return response()->json($data, 200, ['Content-Type' => 'application/json;charset=UTF-8']);
     }
     public function deskripsi($appKey){
         $data = AppDetail::select('deskripsi')->where('subKey', '=', $appKey)->first();
-        return response()->json($data, 200);
+        return response()->json($data, 200, ['Content-Type' => 'application/json;charset=UTF-8']);
     }
 
 }

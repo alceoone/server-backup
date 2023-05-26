@@ -96,7 +96,7 @@
                                 href="/category">Category</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {{ Request::is('/assets') ? 'active text-white bg-primary rounded' : '' }}"
+                            <a class="nav-link {{ Request::is('/assets/create') ? 'active text-white bg-primary rounded' : '' }}"
                                 href="/assets">Asset Image</a>
                         </li>
                         <li class="nav-item">
