@@ -21,6 +21,9 @@ use App\Http\Controllers\PrivacyPolicyController;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/app-ads.txt', function () {
+    return "google.com, pub-6919850560329079, DIRECT, f08c47fec0942fa0";
+});
 
 Route::get('/{appKey}/privacy-policy', [App\Http\Controllers\PrivacyPolicyController::class, 'index']);
 // Route::domain('{sub}.'. env('APP_URL'))->group(function () {
