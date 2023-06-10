@@ -1,103 +1,184 @@
-@extends('layouts.app')
+@extends('layouts2.app')
+
+@section('title', 'Show App')
+
+@push('style')
+    <!-- CSS Libraries -->
+    {{-- <link rel="stylesheet" href="{{ asset('library/dropzone/dist/dropzone.css') }}"> --}}
+@endpush
 
 @section('content')
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-body">
-                        <form action="{{ route('assets.store') }}" method="POST" enctype="multipart/form-data">
-                            @csrf
-                            <div class="container lst row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="dataApps" class="font-weight-bold">Application</label>
-                                        <select class="form-control" name="application" id="dataApps">
-                                            @forelse ($dataApp as $application)
-                                                <option value="{{ $application->app_id }}">{{ $application->title }}
-                                                </option>
-                                            @empty
-                                                <option>Tidak Ada Data</option>
-                                            @endforelse
-                                        </select>
-                                        <!-- error message untuk store_area -->
-                                        @error('store_area')
-                                            <div class="alert alert-danger mt-2">
-                                                {{ $message }}
-                                            </div>
-                                        @enderror
-                                    </div>
+    <div class="main-content">
+        <section class="section">
+            <div class="section-header">
+                <h1>Show App</h1>
+                <div class="section-header-breadcrumb">
+                    <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
+                    <div class="breadcrumb-item"><a href="#">Layout</a></div>
+                    <div class="breadcrumb-item">Default Layout</div>
+                </div>
+            </div>
+            <div class="section-body">
+                <div class="page-wrapper">
+                    <div class="page-content">
+                        <div class="row justify-content-center">
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <form action="{{ route('assets.store') }}" method="POST"
+                                            enctype="multipart/form-data">
+                                            @csrf
+                                            <div class="container lst row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="dataApps" class="font-weight-bold">Application</label>
+                                                        <select class="form-control" name="application" id="dataApps">
+                                                            @forelse ($dataApp as $application)
+                                                                <option value="{{ $application->app_id }}">
+                                                                    {{ $application->title }}
+                                                                </option>
+                                                            @empty
+                                                                <option>Tidak Ada Data</option>
+                                                            @endforelse
+                                                        </select>
+                                                        <!-- error message untuk store_area -->
+                                                        @error('store_area')
+                                                            <div class="alert alert-danger mt-2">
+                                                                {{ $message }}
+                                                            </div>
+                                                        @enderror
+                                                    </div>
 
-                                    <div class="form-group mb-2">
-                                        <label class="font-weight-bold">Title</label>
-                                        <input type="text" class="form-control @error('title') is-invalid @enderror"
-                                            name="title" value="{{ old('title') }}" placeholder="Title Name">
-                                        <!-- error message untuk title -->
-                                        @error('title')
-                                            <div class="alert alert-danger mt-2">
-                                                {{ $message }}
-                                            </div>
-                                        @enderror
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleFormControlSelect1" class="font-weight-bold">Category</label>
-                                        <select class="form-control" name="category" id="exampleFormControlSelect1">
-                                            @forelse ($dataCategory as $category)
-                                                <option value="{{ $category->categories_id }}">{{ $category->title }}
-                                                </option>
-                                            @empty
-                                                <option>Tidak Ada Data</option>
-                                            @endforelse
-                                        </select>
-                                        <!-- error message untuk store_area -->
-                                        @error('store_area')
-                                            <div class="alert alert-danger mt-2">
-                                                {{ $message }}
-                                            </div>
-                                        @enderror
-                                    </div>
-                                    {{-- Image --}}
-                                    <div class="list-images">
-                                        @if (isset($list_images) && !empty($list_images))
-                                            @foreach (json_decode($list_images) as $key => $img)
-                                                <div class="box-image">
-                                                    <input type="hidden" name="images_uploaded[]"
-                                                        value="{{ $img }}" id="img-{{ $key }}">
-                                                    <img src="{{ asset('files/' . $img) }}" class="picture-box">
-                                                    <div class="wrap-btn-delete"><span data-id="img-{{ $key }}"
-                                                            class="btn-delete-image">x</span></div>
+                                                    <div class="form-group mb-2">
+                                                        <label class="font-weight-bold">Title</label>
+                                                        <input type="text"
+                                                            class="form-control @error('title') is-invalid @enderror"
+                                                            name="title" value="{{ old('title') }}"
+                                                            placeholder="Title Name">
+                                                        <!-- error message untuk title -->
+                                                        @error('title')
+                                                            <div class="alert alert-danger mt-2">
+                                                                {{ $message }}
+                                                            </div>
+                                                        @enderror
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="exampleFormControlSelect1"
+                                                            class="font-weight-bold">Category</label>
+                                                        <select class="form-control" name="category"
+                                                            id="exampleFormControlSelect1">
+                                                            @forelse ($dataCategory as $category)
+                                                                <option value="{{ $category->categories_id }}">
+                                                                    {{ $category->title }}
+                                                                </option>
+                                                            @empty
+                                                                <option>Tidak Ada Data</option>
+                                                            @endforelse
+                                                        </select>
+                                                        <!-- error message untuk store_area -->
+                                                        @error('store_area')
+                                                            <div class="alert alert-danger mt-2">
+                                                                {{ $message }}
+                                                            </div>
+                                                        @enderror
+                                                    </div>
+                                                    {{-- Image --}}
+                                                    <div class="list-images">
+                                                        @if (isset($list_images) && !empty($list_images))
+                                                            @foreach (json_decode($list_images) as $key => $img)
+                                                                <div class="box-image">
+                                                                    <input type="hidden" name="images_uploaded[]"
+                                                                        value="{{ $img }}"
+                                                                        id="img-{{ $key }}">
+                                                                    <img src="{{ asset('files/' . $img) }}"
+                                                                        class="picture-box">
+                                                                    <div class="wrap-btn-delete"><span
+                                                                            data-id="img-{{ $key }}"
+                                                                            class="btn-delete-image">x</span></div>
+                                                                </div>
+                                                            @endforeach
+                                                            <input type="hidden" name="images_uploaded_origin"
+                                                                value="{{ $list_images }}">
+                                                            <input type="hidden" name="id"
+                                                                value="{{ $id }}">
+                                                        @endif
+                                                    </div>
+                                                    <div class="input-group hdtuto control-group lst increment">
+                                                        <div class="list-input-hidden-upload">
+                                                            <input type="file" name="filenames[]" id="file_upload"
+                                                                class="myfrm form-control hidden">
+                                                        </div>
+                                                        <div class="input-group-btn">
+                                                            <button class="btn btn-success btn-add-image" type="button"><i
+                                                                    class="fldemo glyphicon glyphicon-plus"></i>+Add
+                                                                image</button>
+                                                        </div>
+                                                    </div>
+                                                    {{-- Image End --}}
                                                 </div>
-                                            @endforeach
-                                            <input type="hidden" name="images_uploaded_origin"
-                                                value="{{ $list_images }}">
-                                            <input type="hidden" name="id" value="{{ $id }}">
-                                        @endif
-                                    </div>
-                                    <div class="input-group hdtuto control-group lst increment">
-                                        <div class="list-input-hidden-upload">
-                                            <input type="file" name="filenames[]" id="file_upload"
-                                                class="myfrm form-control hidden">
-                                        </div>
-                                        <div class="input-group-btn">
-                                            <button class="btn btn-success btn-add-image" type="button"><i
-                                                    class="fldemo glyphicon glyphicon-plus"></i>+Add image</button>
-                                        </div>
-                                    </div>
-                                    {{-- Image End --}}
-                                </div>
 
+                                            </div>
+                                            <div class="mt-3">
+                                                <button type="submit" class="btn btn-md btn-primary"
+                                                    onclick="return formSubmitted = true;">Save</button>
+                                                <button type="reset" class="btn btn-md btn-warning">Reset</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="mt-3">
-                                <button type="submit" class="btn btn-md btn-primary"
-                                    onclick="return formSubmitted = true;">Save</button>
-                                <button type="reset" class="btn btn-md btn-warning">Reset</button>
-                            </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     </div>
+
+    <style>
+        .list-images {
+            width: 50%;
+            margin-top: 20px;
+            display: inline-block;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .box-image {
+            width: 100px;
+            height: 108px;
+            position: relative;
+            float: left;
+            margin-left: 5px;
+        }
+
+        .box-image img {
+            width: 100px;
+            height: 100px;
+        }
+
+        .wrap-btn-delete {
+            position: absolute;
+            top: -8px;
+            right: 0;
+            height: 2px;
+            font-size: 20px;
+            font-weight: bold;
+            color: red;
+        }
+
+        .btn-delete-image {
+            cursor: pointer;
+        }
+
+        .table {
+            width: 15%;
+        }
+    </style>
+@endsection
+
+@push('scripts')
     <script type="text/javascript">
         // pop Confirmasi
         var formSubmitted = false;
@@ -145,8 +226,5 @@
             });
         });
     </script>
-@endsection
-
-@push('scripts')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> --}}
 @endpush

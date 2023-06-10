@@ -61,7 +61,8 @@ class AssetsController extends Controller
     {
         $dataApp = AppDetail::where('user_app_id', $this->fillAuth())->get();
         $dataCategory = Category::where('user_app_id', $this->fillAuth())->get();
-        return view('pages.content.create', compact('dataCategory', 'dataApp'));
+        $type_menu = 'application-wallpaper';
+        return view('pages.content.create', compact('dataCategory', 'dataApp', 'type_menu'));
     }
 
     /**

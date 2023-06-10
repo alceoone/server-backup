@@ -8,6 +8,9 @@ use App\Models\AppDetail;
 use Illuminate\Http\Request;
 use DataTables;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Redirect;
 
 class CategoryController extends Controller
 {
@@ -32,7 +35,7 @@ class CategoryController extends Controller
         if ($request->ajax()) {
             return Datatables::of($data)->addIndexColumn()
                 ->addColumn('action', function($row){
-                    $btn = '<a href="'.route('application.edit', $row->app_id).'" class="btn btn-warning btn-sm">Edit</a>';
+                    $btn = '<a href="'.route('category.edit', $row->categories_id).'" class="btn btn-warning btn-sm">Edit</a>';
                     return $btn;
                 })
                 ->rawColumns(['action'])
@@ -52,7 +55,8 @@ class CategoryController extends Controller
     {
         
         $dataApps = AppDetail::where('user_app_id', $this->fillAuth())->get();
-        return view('pages.category.create', compact('dataApps'));
+        $type_menu = 'application-wallpaper';
+        return view('pages.category.create', compact('dataApps','type_menu'));
     }
 
     /**
@@ -94,7 +98,7 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -103,9 +107,13 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Category $category)
     {
-        //
+        
+        $dataApps = AppDetail::where('user_app_id', $this->fillAuth())->get();
+        $dataCategory = $category->first();
+        $type_menu = 'application-wallpaper';
+        return view('pages.category.edit', compact('dataApps', 'dataCategory', 'type_menu'));
     }
 
     /**
@@ -115,9 +123,35 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Category $category)
     {
-        //
+
+        $data = $category->first();
+
+        $this->validate($request, [
+            'apps'     => 'required',
+            'title'     => 'required|min:3',
+        ]);
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $image->storeAs('public/category', $image->hashName());
+            Storage::delete('public/category/'.$category->image);
+            $category->update([
+                'user_app_id' => $this->fillAuth(),
+                'app_id' => $request->apps,
+                'title' => $request->title,
+                'image' => $image->hashName(),
+            ]);
+
+        } else {
+            $category->update([
+                'user_app_id' => $this->fillAuth(),
+                'app_id' => $request->apps,
+                'title' => $request->title,
+            ]);
+        }
+        return redirect()->route('category.index')->with(['success' => 'Data Berhasil Diubah!']);
+    
     }
 
     /**

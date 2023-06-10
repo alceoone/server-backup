@@ -25,8 +25,8 @@
                         class="fa-brands fa-android"></i>
                     <span>Wallpaper</span></a>
                 <ul class="dropdown-menu">
-                    <li class="{{ Request::is('layout-default-layout') ? 'active' : '' }}">
-                        <a class="nav-link" href="{{ url('layout-default-layout') }}">List App</a>
+                    <li class="{{ Request::is('application') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ url('application') }}">List App</a>
                     </li>
                     <li class="{{ Request::is('category') ? 'active' : '' }}">
                         <a class="nav-link" href="{{ url('category') }}">category</a>
