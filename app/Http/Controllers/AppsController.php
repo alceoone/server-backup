@@ -4,10 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\AppDetail;
 use App\Models\ImageCategory;
+use App\Models\Image;
 use Illuminate\Http\Request;
 use DataTables;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Redirect;
 
 class AppsController extends Controller
 {
@@ -57,7 +60,8 @@ class AppsController extends Controller
                 ->rawColumns(['action'])
                 ->make(true);
         }
-        return view('pages.application.index');
+        $type_menu = 'application-wallpaper';
+        return view('pages.application.index', compact(['type_menu']));
     }
 
     /**
@@ -67,7 +71,8 @@ class AppsController extends Controller
      */
     public function create()
     {
-        return view('pages.application.create');
+        $type_menu = 'application-wallpaper';
+        return view('pages.application.create', compact(['type_menu']));
     }
 
     /**
@@ -129,7 +134,9 @@ class AppsController extends Controller
                 ->where('image_categories.app_id', '=', $id)   
                 ->paginate(5);
         // return $appContent;
-        return view('pages.application.show', compact('appContent'));   
+        
+        $type_menu = 'application-wallpaper';
+        return view('pages.application.show', compact('appContent', 'type_menu'));   
     }
 
     /**
@@ -211,6 +218,23 @@ class AppsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $imageData = Image::where('images_id', $id)->get()->first();
+        $imageCategory = ImageCategory::where('images_id', $id)->get()->first();
+        $exists =  Storage::disk('public')->exists('wallpaper/' . $imageData->image_name);
+            if ($exists) {
+                Storage::delete('public/wallpaper/'. $imageData->image_name);
+                Image::where('images_id', $id)->delete();
+                ImageCategory::where('images_id', $id)->delete();
+            return Redirect::back()->with('message', 'Data berhasil dihapus');
+            } else {
+                $data = Image::where('images_id', $id)->get()->first();
+                if(!$data) {
+                    Image::where('images_id', $id)->delete();
+                    ImageCategory::where('images_id', $id)->delete();
+                } else{
+                    ImageCategory::where('images_id', $id)->delete();
+                }
+            return Redirect::back()->with('message', 'Data berhasil dihapus');
+        }
     }
 }

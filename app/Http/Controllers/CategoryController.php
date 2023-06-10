@@ -38,7 +38,9 @@ class CategoryController extends Controller
                 ->rawColumns(['action'])
                 ->make(true);
         }
-        return view('pages.category.index');
+        
+        $type_menu = 'application-wallpaper';
+        return view('pages.category.index', compact(['type_menu']));
     }
 
     /**
