@@ -41,11 +41,11 @@
                         class="fa-brands fa-android"></i>
                     <span>Skin Minecraft</span></a>
                 <ul class="dropdown-menu">
-                    <li class="{{ Request::is('application-skin') ? 'active' : '' }}">
-                        <a class="nav-link" href="{{ url('application') }}">List App</a>
+                    <li class="{{ Request::is('minecraft/application') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ url('minecraft/application') }}">List App</a>
                     </li>
                     <li class="{{ Request::is('transparent-sidebar') ? 'active' : '' }}">
-                        <a class="nav-link" href="{{ url('transparent-sidebar') }}">Kategory</a>
+                        <a class="nav-link" href="{{ url('transparent-sidebar') }}">Category</a>
                     </li>
                     <li class="{{ Request::is('layout-top-navigation') ? 'active' : '' }}">
                         <a class="nav-link" href="{{ url('layout-top-navigation') }}">Assets</a>

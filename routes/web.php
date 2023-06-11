@@ -7,6 +7,9 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AssetsController;
 use App\Http\Controllers\PrivacyPolicyController;
 
+// Minecraft
+use App\Http\Controllers\Skin\Minecraft\MAppController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -41,3 +44,5 @@ Route::resource('/user-list', UserController::class);
 Route::resource('/application', AppsController::class); 
 Route::resource('/category', CategoryController::class); 
 Route::resource('/assets', AssetsController::class); 
+// Minecraft
+Route::get('/minecraft/application/', [App\Http\Controllers\Skin\Minecraft\MAppController::class, 'index'])->name('minecraft');

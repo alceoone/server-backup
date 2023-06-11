@@ -147,8 +147,9 @@ class AppsController extends Controller
      */
     public function edit($id)
     {
+        $type_menu = 'application-wallpaper';
         $appdetail = AppDetail::where('app_id', $id)->get()->first();
-        return view('pages.application.edit', compact('appdetail'));
+        return view('pages.application.edit', compact('appdetail', 'type_menu'));
     }
 
     /**
