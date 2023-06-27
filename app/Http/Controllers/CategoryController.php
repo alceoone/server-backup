@@ -111,7 +111,7 @@ class CategoryController extends Controller
     {
         
         $dataApps = AppDetail::where('user_app_id', $this->fillAuth())->get();
-        $dataCategory = $category->first();
+        $dataCategory = $category;
         $type_menu = 'application-wallpaper';
         return view('pages.category.edit', compact('dataApps', 'dataCategory', 'type_menu'));
     }
@@ -127,6 +127,8 @@ class CategoryController extends Controller
     {
 
         $data = $category->first();
+
+        // return $data;
 
         $this->validate($request, [
             'apps'     => 'required',

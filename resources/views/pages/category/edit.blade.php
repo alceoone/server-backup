@@ -24,7 +24,7 @@
                         <div class="row justify-content-center">
                             <div class="col-md-12">
                                 <div class="card">
-                                    {{-- {{ $dataCategory }} --}}
+                                    {{ $dataCategory }}
                                     <div class="card-body">
                                         <form action="{{ route('category.update', $dataCategory->categories_id) }}"
                                             method="POST" enctype="multipart/form-data">
@@ -37,7 +37,6 @@
                                                     class="form-control @error('image') is-invalid @enderror"
                                                     name="image">
 
-                                                <!-- error message untuk title -->
                                                 @error('image')
                                                     <div class="alert alert-danger mt-2">
                                                         {{ $message }}
@@ -46,7 +45,6 @@
                                             </div>
 
                                             <div class="form-group">
-                                                {{-- {{ $dataStoreArea }} --}}
                                                 <label for="exampleFormControlSelect1" class="font-weight-bold">Apps</label>
                                                 <select class="form-control" name="apps" id="exampleFormControlSelect1">
                                                     @forelse ($dataApps as $apps)
@@ -57,7 +55,6 @@
                                                         <option>Tidak Ada Data</option>
                                                     @endforelse
                                                 </select>
-                                                <!-- error message untuk apps_area -->
                                                 @error('apps')
                                                     <div class="alert alert-danger mt-2">
                                                         {{ $message }}
@@ -72,7 +69,6 @@
                                                     value='{{ old('title', $dataCategory->title) }}'
                                                     placeholder="Masukkan Title">
 
-                                                <!-- error message untuk title -->
                                                 @error('title')
                                                     <div class="alert alert-danger mt-2">
                                                         {{ $message }}
