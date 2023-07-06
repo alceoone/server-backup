@@ -24,7 +24,7 @@
                         <div class="row justify-content-center">
                             <div class="col-md-12">
                                 <div class="card">
-                                    {{ $dataCategory }}
+                                    {{-- {{ $dataCategory }} --}}
                                     <div class="card-body">
                                         <form action="{{ route('category.update', $dataCategory->categories_id) }}"
                                             method="POST" enctype="multipart/form-data">

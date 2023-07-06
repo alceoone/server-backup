@@ -20,7 +20,10 @@ return new class extends Migration
             $table->text('deskripsi');
             $table->string('package');
             $table->string('key');
+            $table->enum('status', array('delete', 'active'))->default('active');
             $table->text('image_icon');
+            $table->string('subKey')->nullable();
+            $table->text('privacy_policy')->nullable();
             $table->timestamps();
         });
     }

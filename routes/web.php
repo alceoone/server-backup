@@ -46,3 +46,5 @@ Route::resource('/category', CategoryController::class);
 Route::resource('/assets', AssetsController::class); 
 // Minecraft
 Route::get('/minecraft/application/', [App\Http\Controllers\Skin\Minecraft\MAppController::class, 'index'])->name('minecraft');
+Route::get('/minecraft/application/create', [App\Http\Controllers\Skin\Minecraft\MAppController::class, 'create'])->name('minecraft.create');
+Route::post('/minecraft/application/create/post', [App\Http\Controllers\Skin\Minecraft\MAppController::class, 'store'])->name('minecraft.store');

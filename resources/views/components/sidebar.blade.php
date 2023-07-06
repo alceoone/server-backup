@@ -41,7 +41,7 @@
                         class="fa-brands fa-android"></i>
                     <span>Skin Minecraft</span></a>
                 <ul class="dropdown-menu">
-                    <li class="{{ Request::is('minecraft/application') ? 'active' : '' }}">
+                    <li class="{{ Request::is('minecraft/application/*') ? 'active' : '' }}">
                         <a class="nav-link" href="{{ url('minecraft/application') }}">List App</a>
                     </li>
                     <li class="{{ Request::is('transparent-sidebar') ? 'active' : '' }}">

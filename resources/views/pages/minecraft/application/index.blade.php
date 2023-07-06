@@ -25,6 +25,26 @@
                             <div class="col-md-12">
                                 <div class="card">
                                     <div class="card-body">
+                                        <a href="{{ route('minecraft.create') }}" class="btn btn-md btn-success mb-3">Create
+                                            App
+                                            Minecraft</a>
+                                        <div class="col-12 table-responsive">
+                                            <table class="table table-bordered user_datatable">
+                                                <thead>
+                                                    <tr>
+                                                        <th>App ID</th>
+                                                        <th>Icon</th>
+                                                        <th>Title</th>
+                                                        <th>Package</th>
+                                                        <th>Key</th>
+                                                        <th>Key Privacy</th>
+                                                        <th width="100px">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody></tbody>
+                                            </table>
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -37,7 +57,7 @@
 @endsection
 
 @push('scripts')
-    {{-- <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
 
@@ -46,7 +66,7 @@
             var table = $('.user_datatable').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: "{{ route('application.index') }}",
+                ajax: "{{ route('minecraft') }}",
                 columns: [{
                         data: 'user_app_id',
                         name: 'App ID'
@@ -58,8 +78,14 @@
                             if (!data) {
                                 return "<img src=\"https://cdn.pixabay.com/photo/2021/07/25/08/03/account-6491185_960_720.png\" height=\"50\"/>";
                             } else {
-                                return "<img src=\"storage/application/" + data +
+
+                                var baseUrl = window.location.href.split('/minecraft/')[
+                                    0]; // Get the base URL without '/minecraft/'
+                                return "<img src=\"" + baseUrl +
+                                    "/storage/application/minecraft/" + data +
                                     "\" height=\"50\"/>";
+                                // return "<img src=\"storage/application/minecraft/" + data +
+                                //     "\" height=\"50\"/>";
                             }
                         }
                     },
@@ -88,5 +114,5 @@
                 ]
             });
         });
-    </script> --}}
+    </script>
 @endpush

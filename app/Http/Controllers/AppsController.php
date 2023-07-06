@@ -159,10 +159,10 @@ class AppsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, AppDetail $appdetail)
+    public function update(Request $request, AppDetail $appdetail, $id)
     {
-        $dataApp = $appdetail->first();
-        // return $dataApp;
+        $dataApp = $appdetail->where('app_id', $id)->first();
+        return $dataApp;
 
         $this->validate($request, [
             'title'     => 'required|min:5',
