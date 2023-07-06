@@ -162,7 +162,7 @@ class AppsController extends Controller
     public function update(Request $request, AppDetail $appdetail, $id)
     {
         $dataApp = $appdetail->where('app_id', $id)->first();
-        return $dataApp;
+        // return $dataApp;
 
         $this->validate($request, [
             'title'     => 'required|min:5',
