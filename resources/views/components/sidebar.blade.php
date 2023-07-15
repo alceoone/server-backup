@@ -54,6 +54,9 @@
             </li>
             <li class="menu-header">Pages</li>
 
+            <li class="{{ Request::is('device') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ url('device') }}">Device</a>
+            </li>
         </ul>
     </aside>
 </div>

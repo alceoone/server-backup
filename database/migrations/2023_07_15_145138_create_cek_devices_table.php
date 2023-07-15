@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('cek_devices', function (Blueprint $table) {
             $table->id();
+            $table->string('nama');
+            $table->string('id_device');
             $table->timestamps();
         });
     }
