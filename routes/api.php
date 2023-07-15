@@ -32,3 +32,7 @@ Route::group(['prefix' => 'v1'], function () {
     Route::get('/{appKey}/privacy-policy', [App\Http\Controllers\Api\ContentWallpaperController::class, 'privacyPolicy']);
     Route::get('/{appKey}/deskripsi', [App\Http\Controllers\Api\ContentWallpaperController::class, 'deskripsi']);
 });
+
+Route::group(['prefix' => 'device'], function () {
+    Route::get('/{device}', [App\Http\Controllers\Device\CekDeviceController::class, 'cek']);
+});
