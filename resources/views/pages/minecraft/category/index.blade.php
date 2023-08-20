@@ -11,7 +11,7 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>App Minecraft List</h1>
+                <h1>App Minecraft Category</h1>
                 <div class="section-header-breadcrumb">
                     <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
                     <div class="breadcrumb-item"><a href="#">Minecraft</a></div>
@@ -25,6 +25,8 @@
                             <div class="col-md-12">
                                 <div class="card">
                                     <div class="card-body">
+                                        <a href="{{ route('Mcategory.create') }}" class="btn btn-md btn-success mb-3">Add
+                                            Category</a>
                                     </div>
                                 </div>
                             </div>

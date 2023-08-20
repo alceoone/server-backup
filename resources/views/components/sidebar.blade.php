@@ -44,11 +44,11 @@
                     <li class="{{ Request::is('minecraft/application/*') ? 'active' : '' }}">
                         <a class="nav-link" href="{{ url('minecraft/application') }}">List App</a>
                     </li>
-                    <li class="{{ Request::is('transparent-sidebar') ? 'active' : '' }}">
-                        <a class="nav-link" href="{{ url('transparent-sidebar') }}">Category</a>
+                    <li class="{{ Request::is('/minecraft/category/*') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ url('/minecraft/category') }}">Category</a>
                     </li>
-                    <li class="{{ Request::is('layout-top-navigation') ? 'active' : '' }}">
-                        <a class="nav-link" href="{{ url('layout-top-navigation') }}">Assets</a>
+                    <li class="{{ Request::is('minecraft/assets/create/*') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ url('minecraft/assets/create') }}">Assets</a>
                     </li>
                 </ul>
             </li>

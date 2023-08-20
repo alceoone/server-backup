@@ -49,10 +49,10 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <label class="font-weight-bold">Nama Asset</label>
+                                                <label class="font-weight-bold">Category</label>
                                                 <input type="text"
                                                     class="form-control @error('title') is-invalid @enderror" name="title"
-                                                    value="{{ old('title') }}" placeholder="Masukkan Nama Asset">
+                                                    value="{{ old('title') }}" placeholder="Masukkan Title Category">
 
                                                 <!-- error message untuk title -->
                                                 @error('title')
@@ -63,31 +63,19 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <label class="font-weight-bold">Preview Skin</label>
+                                                <label class="font-weight-bold">category image</label>
                                                 <input type="file"
-                                                    class="form-control @error('previewSkin') is-invalid @enderror"
-                                                    name="previewSkin">
+                                                    class="form-control @error('image') is-invalid @enderror"
+                                                    name="image">
 
                                                 <!-- error message untuk title -->
-                                                @error('previewSkin')
+                                                @error('image')
                                                     <div class="alert alert-danger mt-2">
                                                         {{ $message }}
                                                     </div>
                                                 @enderror
                                             </div>
 
-                                            <div class="form-group">
-                                                <label class="font-weight-bold">Skin Download</label>
-                                                <input type="file"
-                                                    class="form-control @error('skin') is-invalid @enderror" name="skin">
-
-                                                <!-- error message untuk title -->
-                                                @error('skin')
-                                                    <div class="alert alert-danger mt-2">
-                                                        {{ $message }}
-                                                    </div>
-                                                @enderror
-                                            </div>
                                             <div class="mt-3">
                                                 <button type="submit" class="btn btn-md btn-primary">Save</button>
                                                 <button type="reset" class="btn btn-md btn-warning">Reset</button>
