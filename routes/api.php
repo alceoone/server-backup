@@ -3,7 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\ContentWallpaperController;
-use App\Http\Controllers\Api\WallV2ControllerController;
+use App\Http\Controllers\Api\WallV2Controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,7 +39,7 @@ Route::group(['prefix' => 'device'], function () {
 });
 
 Route::group(['prefix' => 'v2'], function () {
-    Route::get('/{key}/', [App\Http\Controllers\Api\WallV2ControllerController::class, 'index']);
+    Route::get('/{key}/', [App\Http\Controllers\Api\WallV2Controller::class, 'index']);
     // Route::get('/{key}/new', [App\Http\Controllers\Api\ContentWallpaperController::class, 'new']);
     // Route::get('/{key}/category', [App\Http\Controllers\Api\ContentWallpaperController::class, 'category']);
     // Route::get('/{key}/category/{id}', [App\Http\Controllers\Api\ContentWallpaperController::class, 'categoryId']);  
