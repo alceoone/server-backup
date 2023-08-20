@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\AppDetail;
+use App\Models\ImageCategory;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class WallV2Controller extends Controller
